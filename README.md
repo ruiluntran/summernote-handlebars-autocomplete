@@ -4,7 +4,7 @@ Summernote handlebars autocomplete plugin for [summernote](https://github.com/su
 
 ## Demo
 
-https://summernote-handlebars-autocomplete.ruiluntran.com/
+https://ruiluntran.github.io/summernote-handlebars-autocomplete/
 
 ## Installation
 
