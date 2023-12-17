@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Summernote Plugin - Handlebars Autocomplete</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:title" content="Summernote Plugin - Handlebars Autocomplete" />
+  <meta property="og:description" content="Handlebars autocomplete plugin for summernote" />
+  <meta property="og:url" content="https://github.com/ruiluntran/summernote-handlebars-autocomplete" />
+  <meta property="og:image" content="https://summernote-handlebars-autocomplete.ruiluntran.com/img/hb-autocomplete-coverimage.jpg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="/img/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#000000">
+  <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css" integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.css" integrity="sha512-ngQ4IGzHQ3s/Hh8kMyG4FC74wzitukRMIcTOoKT3EyzFZCILOPF0twiXOQn75eDINUfKBYmzYn2AA8DkAk8veQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.6.96/css/materialdesignicons.min.css">
+  <style>
+
+      body {
+          height: 100vh;
+          width: 100vw;
+          background: url("/img/background.jpg");
+          background-size: cover;
+      }
+
+      .page-header {
+          font-size: 1.8rem;
+          color: #ffffff;
+      }
+
+      .flex-container {
+          display: flex;
+          height: 100%;
+          width: 100%;
+          align-items: center;
+      }
+
+      .note-frame {
+          border-color: #222222 !important;
+      }
+
+      .note-statusbar {
+          border-color: #464545 !important;
+      }
+
+      .note-editable {
+          background: #222222;
+          color: #ffffff;
+      }
+
+      .note-toolbar {
+          background-color: #464545;
+          border-color: #464545;
+      }
+
+      .note-btn {
+          border-color: #464545;
+          background-color: #464545;
+          color: #ffffff;
+      }
+
+      .note-resizebar {
+          background-color: #222222;
+      }
+
+  </style>
+</head>
+<body>
+<div class="flex-container">
+  <div class="container container-content">
+    <div class="row">
+      <div class="col text-center">
+        <h1 class="page-header">Handlebars Autocomplete Plugin</h1>
+        <p class="text-white-50 mt-4">
+          for <a class="text-white" href="https://summernote.org/" target="_blank">https://summernote.org/</a>
+        </p>
+        <p class="text-white-50">
+          Press "{{" to see the autocomplete menu
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="mt-5">
+          <div id="summernote"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center mt-5">
+        <a href="https://github.com/ruiluntran/summernote-handlebars-autocomplete" target class="mr-4" data-toggle="tooltip" data-placement="bottom" title="Go to Github">
+          <i class="mdi mdi-github mdi-36px text-white"></i>
+        </a>
+        <a href="https://www.npmjs.com/package/summernote-handlebars-autocomplete" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Go to npm">
+          <i class="mdi mdi-npm mdi-36px text-white"></i>
+        </a>
+      </div>
+    </div>
+    <footer>
+      <div class="row">
+        <div class="col text-center text-muted mt-3">
+          Powered by <a href="https://ruiluntran.com" target="_blank" class="text-white">Rui Lun Tran</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/js/bootstrap.bundle.min.js" integrity="sha512-mULnawDVcCnsk9a4aG1QLZZ6rcce/jSzEGqUkeOLy0b6q0+T6syHrxlsAGH7ZVoqC93Pd0lBqd6WguPWih7VHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote.min.js" integrity="sha512-6rE6Bx6fCBpRXG/FWpQmvguMWDLWMQjPycXMr35Zx/HRD9nwySZswkkLksgyQcvrpYMx0FELLJVBvWFtubZhDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs4.min.js" integrity="sha512-ZESy0bnJYbtgTNGlAD+C2hIZCt4jKGF41T5jZnIXy4oP8CQqcrBGWyxNP16z70z/5Xy6TS/nUZ026WmvOcjNIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/summernote-handlebars-autocomplete@1.1.1/dist/summernote-handlebars-autocomplete.js"></script>
+<script>
+  $(document).ready(function () {
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('#summernote').summernote({
+      height: 350,
+      handlebarsAutocomplete: {
+        getSuggestions: (value) => {
+          const suggestions = [
+            {
+              display: 'userName',
+              value: 'ruiluntran'
+            },
+            {
+              display: 'ensDomain',
+              value: 'ruiluntran.eth'
+            },
+            {
+              display: 'ethAddress',
+              value: '0xaFd5629A469d535B6E13d166E8f84aB5568b888f'
+            }
+          ];
+          return suggestions.filter(suggestion => {
+            return suggestion.display.includes(value);
+          });
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>
